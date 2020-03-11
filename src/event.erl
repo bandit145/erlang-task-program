@@ -31,7 +31,7 @@ start_link(EventName, DateTime) ->
 
 %% event innards
 init(Server, EventName, DateTime) ->
-	loop(#state{server=Server, name=EventName, to_go=normalize(DateTime)}).
+	loop(#state{server=Server, name=EventName, to_go=time_to_go(DateTime)}).
 
 cancel(Pid) ->
 	Ref = erlang:monitor(process, Pid),
